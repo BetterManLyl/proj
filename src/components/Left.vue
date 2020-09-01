@@ -2,10 +2,10 @@
   <div>
     <div class="title" @click="onclickc(12)">{{message}}</div>
     <ul class="menu">
-      <li>笔记本电脑</li>
-      <li>手机</li>
-      <li>服饰</li>
-      <li>手表</li>
+      <li @click="menu1">笔记本电脑</li>
+      <li @click="menu2">手机</li>
+      <li @click="menu3">服饰</li>
+      <li @click="menu4">手表</li>
       <li>书籍</li>
       <li>玩具</li>
       <li>小家电</li>
@@ -28,10 +28,12 @@
   margin-bottom: 2px;
   background-color: white;
   line-height: 50px;
+  cursor: pointer;
 }
 </style>
 
 <script>
+import Msg from "./msg.js";
 export default {
   created() {
     console.log("created");
@@ -45,6 +47,19 @@ export default {
   methods: {
     onclickc(message) {
       console.log(message);
+    },
+
+    menu1: function () {
+      Msg.$emit("val", "1");
+    },
+    menu2: function () {
+      Msg.$emit("val", "2");
+    },
+    menu3: function () {
+      Msg.$emit("val", "3");
+    },
+    menu4: function () {
+      Msg.$emit("val", "4");
     },
   },
 };
